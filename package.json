@@ -23,7 +23,7 @@
 		"type": "git",
 		"url": "https://github.com/Horizon-Protocol/contracts-interface"
 	},
-	"author": "Synthetix",
+	"author": "HorizonProtocol",
 	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/Horizon-Protocol/contracts-interface/issues"
