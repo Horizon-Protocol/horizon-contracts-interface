@@ -1611,10 +1611,10 @@
     "@ethersproject/properties" "^5.1.0"
     "@ethersproject/strings" "^5.1.0"
 
-"@horizon-protocol/smart-contract@2.33.9":
-  version "2.33.9"
-  resolved "https://registry.yarnpkg.com/@horizon-protocol/smart-contract/-/smart-contract-2.33.9.tgz#71c649569513189984d240564786807485e2a036"
-  integrity sha512-qBZTSmIQiHBqjL1QjinMtOGUP+rKuUQ4Y9aqNLS2iObO6m6pTCMJypEXJKPtqCCTou27QNPfZjjBvkFLO++8dg==
+"@horizon-protocol/smart-contract@2.33.10":
+  version "2.33.10"
+  resolved "https://registry.yarnpkg.com/@horizon-protocol/smart-contract/-/smart-contract-2.33.10.tgz#ea6014eac49fa338fe9ff2a6b875cb639161b558"
+  integrity sha512-NsETi+6rkIKxE2I3YNb7u64ege7W5/kVnFvUtqDL1mBnr4XBeebOP7IjlhOBMIJGYUBcl/d2bh9r0FSzMJ4iBg==
   dependencies:
     "@chainlink/contracts-0.0.10" "npm:@chainlink/contracts@0.0.10"
     "@eth-optimism/contracts" "0.0.2-alpha.7"
