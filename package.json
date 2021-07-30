@@ -1,6 +1,6 @@
 {
 	"name": "@horizon-protocol/contracts-interface",
-	"version": "2.45.8",
+	"version": "2.45.9",
 	"description": "A library for interacting with Horizon smart contracts",
 	"main": "./build/node/index.js",
 	"browser": "./build/index.js",
@@ -30,7 +30,7 @@
 	},
 	"dependencies": {
 		"@horizon-protocol/smart-contract": "^2.33.14",
-		"ethers": "5.0.26",
+		"ethers": "^5.4.2",
 		"lodash": "4.17.19",
 		"web3-utils": "1.2.11"
 	},
@@ -58,7 +58,7 @@
 		"prettier": "2.0.5",
 		"ts-loader": "8.0.2",
 		"ts-node": "8.10.2",
-		"typescript": "3.9.3",
+		"typescript": "^4.3.5",
 		"webpack": "4.44.1",
 		"webpack-cli": "3.3.12"
 	},
