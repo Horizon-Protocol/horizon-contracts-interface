@@ -1,5 +1,7 @@
 import { ethers } from 'ethers';
 
+import { Synths } from '../generated/mainnet';
+
 export enum Network {
 	Mainnet = 'mainnet',
 	Testnet = 'testnet',
@@ -70,7 +72,10 @@ export type HorizonJS = {
 		network: Network;
 		data: string;
 		target: Target;
-	}) => { method: { name: string; params: Array<any> }; contract: string };
+	}) => {
+		method: { name: string; params: Array<any> };
+		contract: string;
+	};
 	defaults: { [key: string]: any };
 	feeds: { [symbol: string]: Feed };
 	tokens: Array<Token>;
@@ -126,10 +131,21 @@ export type Config = {
 	useOvm?: boolean;
 };
 
+export type CurrencyKey = keyof typeof Synths;
+
+export const FIAT_SYNTHS = new Set([Synths.zUSD]);
+
+export enum CurrencyCategory {
+	'crypto' = 'Crypto',
+	'forex' = 'Forex',
+	'equity' = 'Equity',
+	'commodity' = 'Commodity',
+}
+
 export type Synth = {
-	name: string;
+	name: CurrencyKey;
 	asset: string;
-	category: string;
+	category: CurrencyCategory;
 	sign: string;
 	description: string;
 	aggregator?: string;

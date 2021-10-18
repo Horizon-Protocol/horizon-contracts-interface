@@ -25,6 +25,8 @@ module.exports = {
 		path: path.resolve(__dirname, 'build'),
 		filename: 'index.js',
 		libraryTarget: 'umd',
+		library: 'horizon',
+		libraryExport: 'default',
 	},
 	resolve: {
 		extensions: ['.ts', '.js'],

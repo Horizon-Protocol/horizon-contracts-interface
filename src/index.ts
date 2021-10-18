@@ -19,6 +19,8 @@ import { ethers } from 'ethers';
 
 import {
 	Config,
+	CurrencyKey,
+	CurrencyCategory,
 	Network,
 	NetworkId,
 	Target,
@@ -28,6 +30,9 @@ import {
 	Synth,
 	Token,
 } from './types';
+
+import { Synths } from '../generated/mainnet';
+
 import { ERRORS } from './constants';
 
 const horizon = ({ networkId, network, signer, provider }: Config): HorizonJS => {
@@ -94,12 +99,12 @@ const getHorizonContracts = (
 		.map((target: Target) => {
 			if (target.name === 'Synthetix') {
 				target.address = targets.ProxyERC20.address;
-			} else if (target.name === 'SynthsUSD') {
-				target.address = targets.ProxyERC20sUSD.address;
+			} else if (target.name === 'ZassetzUSD') {
+				target.address = targets.ProxyERC20zUSD.address;
 			} else if (target.name === 'FeePool') {
 				target.address = targets.ProxyFeePool.address;
-			} else if (target.name.match(/Synth(s|i)[a-zA-Z]+$/)) {
-				const newTarget = target.name.replace('Synth', 'Proxy');
+			} else if (target.name.match(/Zasset(z|i)[a-zA-Z]+$/)) {
+				const newTarget = target.name.replace('Zasset', 'Proxy');
 				target.address = targets[newTarget].address;
 			}
 			return target;
@@ -114,6 +119,14 @@ const getHorizonContracts = (
 		}, {});
 };
 
-export { horizon, Network, NetworkId };
-export type { Config, Target, TargetsRecord, ContractsMap, HorizonJS, Synth, Token };
+export {
+	horizon,
+	Network,
+	NetworkId,
+	Synths,
+	CurrencyCategory,
+	networkToChainId,
+	getNetworkFromId,
+};
+export type { Config, CurrencyKey, Target, TargetsRecord, ContractsMap, HorizonJS, Synth, Token };
 export default horizon;
