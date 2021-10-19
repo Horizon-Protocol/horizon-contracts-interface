@@ -70,7 +70,10 @@ describe('@synthetixio/js tests', () => {
 	});
 
 	test('should not include invalid synths data', () => {
-		const invalidSynthIndex = findIndex(hznjs.synths, ({ name }) => name === 'mETH1234');
+		const invalidSynthIndex = findIndex(
+			hznjs.synths,
+			({ name }) => (name as unknown) === 'mETH1234'
+		);
 		expect(invalidSynthIndex).toBe(-1);
 	});
 
@@ -118,7 +121,7 @@ describe('@synthetixio/js tests', () => {
 			// @ts-ignore
 			horizon({ network: 'wrongnetwork' });
 		} catch (e) {
-			expect(e.message).toEqual(ERRORS.badNetworkArg);
+			expect(((e as unknown) as any).message).toEqual(ERRORS.badNetworkArg);
 		}
 	});
 });
