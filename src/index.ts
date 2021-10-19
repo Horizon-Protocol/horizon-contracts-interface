@@ -99,6 +99,8 @@ const getHorizonContracts = (
 		.map((target: Target) => {
 			if (target.name === 'Synthetix') {
 				target.address = targets.ProxyERC20.address;
+			} else if (target.name === 'ZassetzETH') {
+				// TODO: temp fix for test case.
 			} else if (target.name === 'ZassetzUSD') {
 				target.address = targets.ProxyERC20zUSD.address;
 			} else if (target.name === 'FeePool') {

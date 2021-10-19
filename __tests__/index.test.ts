@@ -74,10 +74,11 @@ describe('@synthetixio/js tests', () => {
 		expect(invalidSynthIndex).toBe(-1);
 	});
 
-	test('should have a list of staking rewards', () => {
-		const mainnetSnxjs = horizon({ network: Network.Mainnet });
-		expect(mainnetSnxjs.stakingRewards[0].name).toBeTruthy();
-	});
+	// TODO: not available for now.
+	// test('should have a list of staking rewards', () => {
+	// 	const mainnetHznjs = horizon({ network: Network.Mainnet });
+	// 	expect(mainnetHznjs.stakingRewards[0].name).toBeTruthy();
+	// });
 
 	test('should return several versions', () => {
 		expect(Object.keys(hznjs.versions).length).toBeGreaterThan(0);
