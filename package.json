@@ -31,7 +31,7 @@
 		"url": "https://github.com/Horizon-Protocol/contracts-interface/issues"
 	},
 	"dependencies": {
-		"@horizon-protocol/smart-contract": "^2.33.14",
+		"@horizon-protocol/smart-contract": "2.33.15",
 		"ethers": "^5.4.2",
 		"lodash": "4.17.19",
 		"web3-utils": "1.2.11"
