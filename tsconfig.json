@@ -1,6 +1,7 @@
 {
 	"compilerOptions": {
 		"declaration": true,
+		"declarationMap": true,
 		"declarationDir": "./build",
 		"allowJs": true,
 		"esModuleInterop": true,

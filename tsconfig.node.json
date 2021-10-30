@@ -1,6 +1,7 @@
 {
 	"compilerOptions": {
-		"declaration": false,
+		"declaration": true,
+		"declarationMap": true,
 		"module": "commonjs",
 		"outDir": "./build/node",
 		"allowJs": true,
