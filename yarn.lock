@@ -1261,10 +1261,10 @@
     "@ethersproject/properties" "^5.4.0"
     "@ethersproject/strings" "^5.4.0"
 
-"@horizon-protocol/smart-contract@2.49.0":
-  version "2.49.0"
-  resolved "https://registry.yarnpkg.com/@horizon-protocol/smart-contract/-/smart-contract-2.49.0.tgz#4caa70fcf4783ba647bdb8babe2e14e3ad2159d2"
-  integrity sha512-nvc10s9Cbkeaw5+bTfNsVFXP+QSWLe3PRsZHtH0QmyEqlCTdcU6DIVetKD8vNVXKZ2zuO0086pABIEivfbzTiA==
+"@horizon-protocol/smart-contract@2.50.1":
+  version "2.50.1"
+  resolved "https://registry.yarnpkg.com/@horizon-protocol/smart-contract/-/smart-contract-2.50.1.tgz#40786d07b25423ebdae5f2455ee3ae26018b2b6c"
+  integrity sha512-ZlFM7IK8YateKC8ALVGt+SM93Y3ZiBDlLhxIZVJT+r+6FF5+Wh+9fGmOXgHHZuaUuA3L8ef4tuBSppptgzymtQ==
   dependencies:
     abi-decoder "2.3.0"
     commander "8.1.0"
