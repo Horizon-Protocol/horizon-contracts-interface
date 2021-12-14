@@ -115,7 +115,7 @@ const getHorizonContracts = (
 			acc[name] = new ethers.Contract(
 				address,
 				sources[source].abi,
-				signer || provider || ethers.getDefaultProvider(network)
+				(signer as any) || provider || ethers.getDefaultProvider(network)
 			);
 			return acc;
 		}, {});
