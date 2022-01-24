@@ -1,8 +1,15 @@
 export enum Synths {
     zUSD = 'zUSD',
     zBNB = 'zBNB',
-    iBNB = 'iBNB',
     zBTC = 'zBTC',
-    iBTC = 'iBTC',
     zETH = 'zETH',
+    zADA = 'zADA',
+    zCAKE = 'zCAKE',
+    zDOT = 'zDOT',
+    zLINK = 'zLINK',
+    zMATIC = 'zMATIC',
+    zXRP = 'zXRP',
+    zDOGE = 'zDOGE',
+    iBNB = 'iBNB',
+    iBTC = 'iBTC',
 }
