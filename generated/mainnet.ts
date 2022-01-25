@@ -1,4 +1,4 @@
 export enum Synths {
-    zUSD = 'zUSD',
-    zBNB = 'zBNB',
+  zUSD = 'zUSD',
+  zBNB = 'zBNB',
 }

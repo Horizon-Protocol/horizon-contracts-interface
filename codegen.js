@@ -13,7 +13,10 @@ for (const network of ['mainnet', 'testnet']) {
 	for (const synth of synths) {
 		if (!synth.name) continue;
 
-		genTs.push(`    ${synth.name} = '${synth.name}',`);
+		// ingore inverse currency
+		if (synth.name[0] === 'i') continue;
+
+		genTs.push(`  ${synth.name} = '${synth.name}',`);
 	}
 
 	genTs.push('}');
