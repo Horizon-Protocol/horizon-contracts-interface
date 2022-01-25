@@ -1,6 +1,7 @@
 import { ethers } from 'ethers';
 
-import { Synths } from '../generated/mainnet';
+// import { Synths } from '../generated/mainnet';
+import { Synths } from '../generated/testnet';
 
 export enum Network {
 	Mainnet = 'mainnet',
@@ -68,14 +69,12 @@ type Feed = {
 export type HorizonJS = {
 	networks: Array<Network>;
 	networkToChainId: Record<Network, NetworkId>;
-	decode: (config: {
-		network: Network;
-		data: string;
-		target: Target;
-	}) => {
+	decode: (config: { network: Network; data: string; target: Target }) => {
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		method: { name: string; params: Array<any> };
 		contract: string;
 	};
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	defaults: { [key: string]: any };
 	feeds: { [symbol: string]: Feed };
 	tokens: Array<Token>;

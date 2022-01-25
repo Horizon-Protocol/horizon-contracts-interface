@@ -31,7 +31,8 @@ import {
 	Token,
 } from './types';
 
-import { Synths } from '../generated/mainnet';
+// import { Synths } from '../generated/mainnet';
+import { Synths } from '../generated/testnet';
 
 import { ERRORS } from './constants';
 
