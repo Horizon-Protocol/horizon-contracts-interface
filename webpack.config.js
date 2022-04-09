@@ -3,6 +3,8 @@
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 
+const horizonTypeFilePath = path.resolve(__dirname, 'src', 'horizon.d.ts');
+
 module.exports = {
   module: {
     rules: [
@@ -34,7 +36,13 @@ module.exports = {
   },
   plugins: [
     new CopyPlugin({
-      patterns: [path.resolve(__dirname, 'src', 'horizon.d.ts')],
+      patterns: [
+        horizonTypeFilePath,
+        {
+          from: horizonTypeFilePath,
+          to: path.resolve(__dirname, 'build', 'node', 'src', 'horizon.d.ts'),
+        },
+      ],
     }),
   ],
 };
