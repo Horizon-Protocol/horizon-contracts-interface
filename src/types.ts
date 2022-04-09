@@ -1,157 +1,96 @@
 import { ethers } from 'ethers';
+import {
+  FeedRecord,
+  SourceRecord,
+  StakingReward,
+  Target,
+  TargetsRecord,
+  Token,
+  User,
+  Version,
+  networkToChainId,
+} from '@horizon-protocol/smart-contract';
 
-// import { Synths } from '../generated/mainnet';
 import { Synths } from '../generated/testnet';
+import { Synths as TestnetSynths } from '../generated/testnet';
 
-export enum Network {
-	Mainnet = 'mainnet',
-	Testnet = 'testnet',
-}
+export const NetworkIdByName = {
+  mainnet: 56,
+  testnet: 97,
+} as const;
 
-export enum NetworkId {
-	Mainnet = 56,
-	Testnet = 97,
-}
+export const NetworkNameById = {
+  56: 'mainnet',
+  97: 'testnet',
+} as const;
 
-type ContractInfo = {
-	address: string;
-	replaced_in: string;
-	status: string;
-};
-
-type Version = {
-	commit: string;
-	contracts: { [name: string]: ContractInfo };
-	date: string;
-	fulltag: string;
-	network: string;
-	release: string;
-	tag: string;
-};
-
-type StakingReward = {
-	name: string;
-	rewardsToken: string;
-	stakingToken: string;
-};
-
-export type Token = {
-	address: string;
-	asset?: string;
-	decimals: number;
-	feed?: string;
-	index?: Array<{
-		asset: string;
-		category: string;
-		description: string;
-		sign: string;
-		units: number;
-		weight: number;
-	}>;
-	inverted?: {
-		entryPoint: number;
-		lowerLimit: number;
-		upperLimit: number;
-	};
-	name: string;
-	symbol: string;
-};
-
-type Feed = {
-	asset: string;
-	category: string;
-	description?: string;
-	exchange?: string;
-	feed?: string;
-	sign: string;
-};
+export type NetworkIdByNameType = typeof NetworkIdByName;
+export type NetworkName = keyof typeof NetworkIdByName;
+export type NetworkId = typeof NetworkIdByName[keyof typeof NetworkIdByName];
 
 export type HorizonJS = {
-	networks: Array<Network>;
-	networkToChainId: Record<Network, NetworkId>;
-	decode: (config: { network: Network; data: string; target: Target }) => {
-		// eslint-disable-next-line @typescript-eslint/no-explicit-any
-		method: { name: string; params: Array<any> };
-		contract: string;
-	};
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	defaults: { [key: string]: any };
-	feeds: { [symbol: string]: Feed };
-	tokens: Array<Token>;
-	network: {
-		id: NetworkId;
-		name: Network;
-		useOvm: boolean;
-	};
-	sources: { [name: string]: SourceData };
-	targets: TargetsRecord;
-	synths: Synth[];
-	versions: { [version: string]: Version };
-	stakingRewards: Array<StakingReward>;
-	suspensionReasons: { [code: number]: string };
-	users: User[];
-	toBytes32: (key: string) => string;
-	utils: typeof ethers.utils;
-	contracts: ContractsMap;
+  networks: Array<NetworkName>;
+  networkToChainId: typeof networkToChainId;
+  decode: (config: { network: NetworkName; data: string; target: Target }) => {
+    method: { name: string; params: Array<any> };
+    contract: string;
+  };
+  defaults: { [key: string]: any };
+  feeds: FeedRecord;
+  tokens: Array<Token>;
+  network: {
+    id: NetworkId;
+    name: NetworkName;
+    useOvm: boolean;
+  };
+  sources: SourceRecord;
+  targets: TargetsRecord;
+  synths: Synth[];
+  versions: { [version: string]: Version };
+  stakingRewards: Array<StakingReward>;
+  suspensionReasons: { [code: number]: string };
+  users: User[];
+  toBytes32: (key: string) => string;
+  utils: typeof ethers.utils;
+  contracts: ContractsMap;
 };
-
-export type SourceData = {
-	bytecode: string;
-	abi: ethers.ContractInterface;
-};
-
-export type Target = {
-	name: string;
-	source: string;
-	address: string;
-	link: string;
-	timestamp: string;
-	txn: string;
-	network: Network;
-};
-
-export type TargetsRecord = Record<string, Target>;
-
-export interface ContractDefinition {
-	name: string;
-	abi: ethers.ContractInterface;
-	address: string;
-}
 
 export type ContractsMap = {
-	[name: string]: ethers.Contract;
+  [name: string]: ethers.Contract;
 };
 
 export type Config = {
-	networkId?: NetworkId;
-	network?: Network;
-	signer?: ethers.Signer;
-	provider?: ethers.providers.Provider;
-	useOvm?: boolean;
+  networkId?: NetworkId;
+  network?: NetworkName;
+  signer?: ethers.Signer;
+  provider?: ethers.providers.Provider;
+  useOvm?: boolean;
 };
 
-export type CurrencyKey = keyof typeof Synths;
+export type CurrencyKey = keyof typeof Synths | keyof typeof TestnetSynths;
 
-export const FIAT_SYNTHS = new Set([Synths.zUSD]);
+export const FIAT_SYNTHS = new Set([
+  // Synths.sEUR,
+  // Synths.sJPY,
+  Synths.zUSD,
+  // Synths.sAUD,
+  // Synths.sGBP,
+  // Synths.sCHF,
+]);
 
 export enum CurrencyCategory {
-	'crypto' = 'Crypto',
-	'forex' = 'Forex',
-	'equity' = 'Equity',
-	'commodity' = 'Commodity',
+  'crypto' = 'Crypto',
+  'forex' = 'Forex',
+  'equity' = 'Equity',
+  'commodity' = 'Commodity',
 }
 
 export type Synth = {
-	name: CurrencyKey;
-	asset: string;
-	category: CurrencyCategory;
-	sign: string;
-	description: string;
-	aggregator?: string;
-	subclass?: string;
-};
-
-export type User = {
-	name: string;
-	address: string;
+  name: CurrencyKey;
+  asset: string;
+  category: CurrencyCategory;
+  sign: string;
+  description: string;
+  aggregator?: string;
+  subclass?: string;
 };
