@@ -16,5 +16,5 @@
     "baseUrl": "src",
     "lib": ["ESNext"]
   },
-  "include": ["./src/horizon.d.ts"]
+  "include": ["src"]
 }
