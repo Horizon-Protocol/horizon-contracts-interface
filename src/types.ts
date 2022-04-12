@@ -11,7 +11,7 @@ import {
   networkToChainId,
 } from '@horizon-protocol/smart-contract';
 
-import { Synths } from '../generated/testnet';
+import { Synths as MainnetSynths } from '../generated/mainnet';
 import { Synths as TestnetSynths } from '../generated/testnet';
 
 export const NetworkIdByName = {
@@ -67,16 +67,7 @@ export type Config = {
   useOvm?: boolean;
 };
 
-export type CurrencyKey = keyof typeof Synths | keyof typeof TestnetSynths;
-
-export const FIAT_SYNTHS = new Set([
-  // Synths.sEUR,
-  // Synths.sJPY,
-  Synths.zUSD,
-  // Synths.sAUD,
-  // Synths.sGBP,
-  // Synths.sCHF,
-]);
+export type CurrencyKey = keyof typeof MainnetSynths | keyof typeof TestnetSynths;
 
 export enum CurrencyCategory {
   'crypto' = 'Crypto',
