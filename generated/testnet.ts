@@ -10,4 +10,5 @@ export enum Synths {
   zMATIC = 'zMATIC',
   zXRP = 'zXRP',
   zDOGE = 'zDOGE',
+  zXVS = 'zXVS',
 }
