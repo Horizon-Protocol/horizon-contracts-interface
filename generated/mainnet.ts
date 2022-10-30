@@ -20,4 +20,9 @@ export enum Synths {
   zAAPL = 'zAAPL',
   zTSLA = 'zTSLA',
   zCOIN = 'zCOIN',
+  zAMZN = 'zAMZN',
+  zMSFT = 'zMSFT',
+  zNVDA = 'zNVDA',
+  zAVAX = 'zAVAX',
+  zMATIC = 'zMATIC',
 }
