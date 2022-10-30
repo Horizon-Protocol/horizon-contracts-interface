@@ -1,6 +1,6 @@
 {
   "name": "@horizon-protocol/contracts-interface",
-  "version": "2.53.0",
+  "version": "2.53.1",
   "description": "A library for interacting with Horizon smart contracts",
   "source": "./src/index.ts",
   "main": "./build/node/src/index.js",
