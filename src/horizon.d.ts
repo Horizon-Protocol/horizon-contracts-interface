@@ -75,6 +75,53 @@ declare module '@horizon-protocol/smart-contract' {
     stakingToken: string;
   };
 
+  type Future = {
+    marketKey: string;
+    asset: string;
+    takerFee: string;
+    makerFee: string;
+    takerFeeNextPrice: string;
+    makerFeeNextPrice: string;
+    nextPriceConfirmWindow: string;
+    maxLeverage: string;
+    maxMarketValueUSD: string;
+    maxFundingRate: string;
+    1;
+    skewScaleUSD: string;
+  };
+
+  type PerpsV2 = {
+    marketKey: string;
+    asset: string;
+    makerFee: string;
+    takerFee: string;
+    overrideCommitFe: string;
+    takerFeeDelayedOrder: string;
+    makerFeeDelayedOrder: string;
+    takerFeeOffchainDelayedOrder: string;
+    makerFeeOffchainDelayedOrder: string;
+    nextPriceConfirmWindow: string;
+    delayedOrderConfirmWindow: string;
+    minDelayTimeDelta: string;
+    maxDelayTimeDelta: string;
+    offchainDelayedOrderMinAge: string;
+    offchainDelayedOrderMaxAge: string;
+    maxLeverage: string;
+    maxMarketValue: string;
+    maxFundingVelocity: string;
+    skewScale: string;
+    offchainPriceDivergence: string;
+    liquidationPremiumMultiplier: string;
+    offchainMarketKey: string;
+    paused: string;
+    offchainPaused: string;
+  };
+
+  type PerpsV2ProxiedMarkets = {
+    abi: ethers.ContractInterface;
+    address: string;
+  };
+
   export function getNetworkFromId(arg: { id: NetworkId | number }): {
     useOvm?: boolean;
     network: NetworkName;
@@ -122,6 +169,13 @@ declare module '@horizon-protocol/smart-contract' {
     network: NetworkName;
     useOvm?: boolean;
   }): StakingReward[];
+  export function getFuturesMarkets(arg: { network: NetworkName; useOvm?: boolean }): Future[];
+  export function getPerpsMarkets(arg: { network: NetworkName; useOvm?: boolean }): PerpsV2[];
+  export function getPerpsV2ProxiedMarkets(arg: {
+    network: NetworkName;
+    useOvm?: boolean;
+  }): PerpsV2ProxiedMarkets[];
+
   export const network: {
     id: NetworkId;
     name: NetworkName;

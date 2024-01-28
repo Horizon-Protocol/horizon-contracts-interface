@@ -7,6 +7,9 @@ import {
   getVersions,
   getSuspensionReasons,
   getStakingRewards,
+  getFuturesMarkets,
+  getPerpsMarkets,
+  getPerpsV2ProxiedMarkets,
   networks,
   networkToChainId,
   getNetworkFromId,
@@ -60,6 +63,9 @@ const horizon = ({ networkId, network, signer, provider }: Config): HorizonJS =>
     versions: getVersions({ network: currentNetwork, useOvm }),
     stakingRewards: getStakingRewards({ network: currentNetwork, useOvm }),
     suspensionReasons: getSuspensionReasons(),
+    futuresMarkets: getFuturesMarkets({ network: currentNetwork, useOvm }),
+    perpsMarkets: getPerpsMarkets({ network: currentNetwork, useOvm }),
+    perpsV2ProxideMarkets: getPerpsV2ProxiedMarkets({ network: currentNetwork, useOvm }),
     toBytes32,
     utils: ethers.utils,
     contracts: getHorizonContracts(currentNetwork, signer, provider, useOvm),
@@ -108,9 +114,15 @@ const getHorizonContracts = (
   return Object.values(targets)
     .map((target) => {
       if (target.name === 'Synthetix') {
-        target.address = targets.ProxyERC20.address;
+        target.address = targets.ProxySynthetix.address;
+        // if (network === 'mainnet') {
+        //   target.address = targets.ProxyERC20.address;
+        // } else target.address = targets.ProxySynthetix.address;
       } else if (target.name === 'ZassetzUSD') {
-        target.address = targets.ProxyERC20zUSD.address;
+        target.address = targets.ProxyzUSD.address;
+        // if (network === 'mainnet') {
+        //   target.address = targets.ProxyERC20zUSD.address;
+        // } else target.address = targets.ProxyzUSD.address;
       } else if (target.name === 'FeePool') {
         target.address = targets.ProxyFeePool.address;
       } else if (target.name.match(/Zasset(z|i)[a-zA-Z]+$/)) {

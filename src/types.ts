@@ -3,6 +3,9 @@ import {
   FeedRecord,
   SourceRecord,
   StakingReward,
+  Future,
+  PerpsV2,
+  PerpsV2ProxiedMarkets,
   Target,
   TargetsRecord,
   Token,
@@ -49,6 +52,9 @@ export type HorizonJS = {
   versions: { [version: string]: Version };
   stakingRewards: Array<StakingReward>;
   suspensionReasons: { [code: number]: string };
+  futuresMarkets: Array<Future>;
+  perpsMarkets: Array<PerpsV2>;
+  perpsV2ProxideMarkets: Array<PerpsV2ProxiedMarkets>;
   users: User[];
   toBytes32: (key: string) => string;
   utils: typeof ethers.utils;

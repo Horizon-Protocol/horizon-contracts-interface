@@ -8,18 +8,22 @@
   "browser": "./build/node/src/index.js",
   "types": "./build/node/src/index.d.ts",
   "files": [
-    "build"
+    "build",
+    "src"
   ],
   "scripts": {
-    "build": "node ./codegen.js && npm run build-browser && npm run build-node",
+    "build": "node ./codegen.js",
+    "build2": "node ./codegen.js && npm run build-browser2 && npm run build-node",
     "build-node": "tsc -p tsconfig.node.json",
+    "build-browser2": "webpack --mode=production",
     "build-browser": "webpack --mode=production --max-old-space-size=4096",
     "examples:node": "ts-node --project tsconfig.node.json ./examples/signer-example.js",
     "examples:browser": "npm run build-browser && http-server -o ./examples/browser-example.html -c-1",
     "lint": "eslint './src/**/*.{js,ts,tsx}' && tsc",
     "lint:fix": "eslint --fix './src/**/*.{js,ts,tsx}'",
     "test": "node --experimental-vm-modules ./node_modules/.bin/jest --forceExit --coverage --no-cache",
-    "tsc": "tsc --noemit"
+    "tsc": "tsc --noemit",
+    "upgrade-horizon": "npm install @horizon-protocol/smart-contract@@latest"
   },
   "repository": {
     "type": "git",
@@ -64,8 +68,8 @@
     "ts-loader": "8.0.2",
     "ts-node": "^10.4.0",
     "typescript": "^4.5.4",
-    "webpack": "4.44.1",
-    "webpack-cli": "3.3.12"
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
   },
   "husky": {
     "hooks": {
