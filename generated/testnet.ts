@@ -7,8 +7,6 @@ export enum Synths {
   zCAKE = 'zCAKE',
   zDOT = 'zDOT',
   zLINK = 'zLINK',
-  zMATIC = 'zMATIC',
   zXRP = 'zXRP',
-  zDOGE = 'zDOGE',
-  zXVS = 'zXVS',
+  zDAI = 'zDAI',
 }
