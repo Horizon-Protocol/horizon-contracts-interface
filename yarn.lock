@@ -1887,10 +1887,10 @@
   resolved "https://registry.npmjs.org/@fastify/busboy/-/busboy-2.1.0.tgz"
   integrity sha512-+KpH+QxZU7O4675t3mnkQKcZZg56u+K/Ct2K+N2AZYNVK8kyeo/bI18tI8aPm3tvNNRyTWfj6s5tnGNlcbQRsA==
 
-"@horizon-protocol/smart-contract@^3.0.16":
-  version "3.0.16"
-  resolved "https://registry.npmjs.org/@horizon-protocol/smart-contract/-/smart-contract-3.0.16.tgz"
-  integrity sha512-Pd0+e/JyiiJYKu3A95Ihlxam3atrsNBA01F8J6KKH/h3XItmQ+Pdkn14OMeXGVZDcsWrU8WdAExhbBlB/Pbmhw==
+"@horizon-protocol/smart-contract@^3.0.17":
+  version "3.0.17"
+  resolved "https://registry.npmjs.org/@horizon-protocol/smart-contract/-/smart-contract-3.0.17.tgz"
+  integrity sha512-8vb8TMJ8oD0I9DXkne6hVDoe7mMviMqVsCCiCJUgKUpha0zgs5k/89h0+MV7GxBNEnqKGByPdkOP5Gh9SpxvpA==
   dependencies:
     "@eth-optimism/smock" "1.1.10"
     "@nomiclabs/hardhat-etherscan" "^3.1.0"
